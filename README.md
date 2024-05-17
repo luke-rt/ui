@@ -1,36 +1,40 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# UI components library built for Penn Labs
 
-## Getting Started
+## Setup
+```sh
+# install dependencies
+yarn
 
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+# run storybook
+yarn storybook
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Debugging
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Package hoisting error
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+If you encounter the following error while running `yarn storybook`
 
-## Learn More
+```sh
+yarn run v1.22.21
+$ storybook dev -p 6006
+🔴 Error: It looks like you are having a known issue with package hoisting.
+Please check the following issue for details and solutions: https://github.com/storybookjs/storybook/issues/22431#issuecomment-1630086092
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+/Users/luke/dev/pennlabs/ui/node_modules/cli-table3/src/utils.js:1
+const stringWidth = require('string-width');
+                    ^
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Error [ERR_REQUIRE_ESM]: require() of ES Module /Users/luke/dev/pennlabs/ui/node_modules/string-width/index.js from /Users/luke/dev/pennlabs/ui/node_modules/cli-table3/src/utils.js not supported.
+Instead change the require of index.js in /Users/luke/dev/pennlabs/ui/node_modules/cli-table3/src/utils.js to a dynamic import() which is available in all CommonJS modules.
+    at Object.<anonymous> (/Users/luke/dev/pennlabs/ui/node_modules/cli-table3/src/utils.js:1:21) {
+  code: 'ERR_REQUIRE_ESM'
+}
 
-## Deploy on Vercel
+Node.js v21.7.3
+error Command failed with exit code 7.
+info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Run `yarn upgrade` first.
