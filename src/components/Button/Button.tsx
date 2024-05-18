@@ -5,8 +5,8 @@ const button = cva("button", {
   variants: {
     theme: {
       pcr: [
-        "bg-[#85B8BA]",
-        "hover:bg-[#9DC7C9]",
+        "bg-pcrTeal-400",
+        "hover:bg-pcrTeal-300",
       ],
       pcp: [
         "bg-[#878ED8]",
