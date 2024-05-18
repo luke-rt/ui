@@ -13,9 +13,30 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Primary: Story = {
+export const Review: Story = {
   args: {
     children: "Test",
-    intent: "primary",
+    theme: "pcr",
+  },
+};
+
+export const Plan: Story = {
+  args: {
+    children: "Test",
+    theme: "pcp",
+  },
+};
+
+export const Degree: Story = {
+  args: {
+    children: "Test",
+    theme: "pdp",
+  },
+};
+
+export const Alert: Story = {
+  args: {
+    children: "Test",
+    theme: "pca",
   },
 };

@@ -3,29 +3,24 @@ import { cva, type VariantProps } from "class-variance-authority";
 
 const button = cva("button", {
   variants: {
-    intent: {
-      primary: [
-        "bg-white",
-        "text-black",
-        "border-transparent",
-        "hover:bg-slate-100",
-        "rounded-lg",
+    theme: {
+      pcr: [
+        "bg-[#85B8BA]",
+        "hover:bg-[#9DC7C9]",
       ],
-      secondary: [
-        "bg-[#23252c]",
-        "text-white",
-        "border-transparent",
-        "rounded-lg",
+      pcp: [
+        "bg-[#878ED8]",
+        "hover:bg-[#9EA3DD]"
+      ],
+      pdp: [
+        "bg-[#91A9EA]",
+        "hover:bg-[#A6BAF0]"
+      ],
+      pca: [
+        "bg-[#5CB5F6]",
+        "hover:bg-[#77C3FA]"
       ],
     },
-    size: {
-      small: ["text-sm", "py-1", "px-2"],
-      medium: ["text-base", "py-2", "px-4"],
-    },
-  },
-  defaultVariants: {
-    intent: "primary",
-    size: "medium",
   },
 });
 
@@ -35,8 +30,7 @@ export interface ButtonProps
 
 const Button: React.FC<ButtonProps> = ({
   className,
-  intent,
-  size,
+  theme,
   ...props
-}) => <button className={button({ intent, size, className })} {...props} />;
+}) => <button className={button({ theme, className }) + " text-base py-2 px-4 text-white border-transparent rounded-lg"} {...props} />;
 export default Button;
